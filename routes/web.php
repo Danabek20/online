@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MineController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\ProductController;
 
 
 
@@ -34,12 +35,10 @@ Route::middleware([
 Route::get('/dash',[MineController::class,'dashboard']);
 
 
-
+//Category
 Route::get('categoryIndex',[CategoryController::class,'categoryIndex'])->name('categoryIndex');
 
-
 Route::get('categoryAdd',[CategoryController::class,'categoryAdd'])->name('categoryAdd');
-
 
 Route::get('categoryEdit/{id}',[CategoryController::class,'categoryEdit'])->name('categoryEdit');
 
@@ -49,3 +48,15 @@ Route::post('categoryStore',[CategoryController::class,'categoryStore'])->name('
 
 Route::post('categoryUpdate',[CategoryController::class,'categoryUpdate'])->name('categoryUpdate');
 
+//Product
+Route::get('productIndex',[ProductController::class,'productIndex'])->name('productIndex');
+
+Route::get('productAdd',[ProductController::class,'productAdd'])->name('productAdd');
+
+Route::post('productStore',[ProductController::class,'productStore'])->name('productStore');
+
+Route::get('productEdit/{id}',[ProductController::class,'productEdit'])->name('productEdit');
+
+Route::post('productUpdate',[ProductController::class,'productUpdate'])->name('productUpdate');
+
+Route::post('productDelete/{id}',[ProductController::class,'productDelete'])->name('productDelete');
