@@ -13,7 +13,7 @@ class MineController extends Controller
 {
     public function dashboard(){
         $userType = Auth::user()->user_type;
-        $products = Product::all();
+        $products = Product::paginate(3);
         if($userType==1){
             return view('admin.home');
         }else{
@@ -22,7 +22,7 @@ class MineController extends Controller
     }
 
     public function indexHomeProduct(){
-        $products = Product::all();
+        $products = Product::paginate(3);
 
         return view('home.index',compact('products'));
     }

@@ -10,7 +10,7 @@ use App\Models\Category;
 class ProductController extends Controller
 {
     public function productIndex(){
-        $products = Product::all();
+        $products = Product::paginate(5);
         return view("admin.product-view",compact("products"));
     }
 

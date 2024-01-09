@@ -8,12 +8,12 @@ use App\Models\Category;
 class CategoryController extends Controller
 {
     public function categoryIndex(){
-        $categories = Category::all();
+        $categories = Category::paginate(5);
         return view("admin.category-add",compact("categories"));
     }
 
     public function categoryAdd(){
-        $categories = Category::all();
+        $categories = Category::paginate(5);
         return view("admin.category-add",compact("categories"));
     }
     public function categoryStore(Request $request){
