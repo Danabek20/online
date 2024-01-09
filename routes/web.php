@@ -18,9 +18,12 @@ use App\Http\Controllers\ProductController;
 |
 */
 
-Route::get('/', function () {
-    return view('home.index');
-});
+// Route::get('/', function () {
+//     return view('home.index');
+// });
+
+Route::get('/',[MineController::class,'productIndex']);
+
 
 Route::middleware([
     'auth:sanctum',
@@ -59,4 +62,12 @@ Route::get('productEdit/{id}',[ProductController::class,'productEdit'])->name('p
 
 Route::post('productUpdate',[ProductController::class,'productUpdate'])->name('productUpdate');
 
+Route::get('productSearch',[ProductController::class,'productSearch'])->name('productSearch');
+
 Route::post('productDelete/{id}',[ProductController::class,'productDelete'])->name('productDelete');
+
+// home main
+
+Route::get('/',[MineController::class,'indexHomeProduct']);
+
+Route::get('cart-view-product',[MineController::class,'cartViewProduct'])->name('cartViewProduct');

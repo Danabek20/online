@@ -56,13 +56,31 @@ class ProductController extends Controller
         }
     }
         public function productUpdate(Request $request){
-            $request->validate([
-                'name'=>'required',
-                'desc'=>'required',
-                'price'=>'required',
+                 $request->validate([
+                     'name'=>'required',
+                     'desc'=>'required',
+                     'price'=>'required',
+                     'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
                 ]);
-                Product::findOrFail($request->id)->update($request->all());
+    
+    
+                $data = $request->all();
+                if($request->hasFile('img')){
+                 $img = $request->file('img');
+                 $imgName = time().'-'.$img->getClientOriginalName();
+                 $path = $img->storeAs('product-img',$imgName);
+                 $data['img']=$imgName;
+    
+                }
+    
+                Product::findOrFail($request->id)->update($data);
                 return redirect()->route('productIndex')->with('message','Product updated successfully');
+        }
+
+        public function productSearch(Request $request){
+            $text = $request->search;
+            $products = Product::where('name','Like','%'.$text.'%')->get();
+            return view('admin.product-view',compact('products'));
         }
 
 }

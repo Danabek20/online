@@ -66,10 +66,10 @@
                         <label>Quantity</label>
                         <input name="quantity" value="{{$product->quantity}}" type="text" class="form-control">
                       </div>
-                      {{-- <div class="form-group">
+                      <div class="form-group">
                         <label>Product Image</label>
                         <input name="img" type="file" class="form-control">
-                      </div> --}}
+                      </div>
                     </div>
                     <div class="card-footer text-right">
                       <button class="btn btn-primary mr-1" type="submit">Submit</button>
