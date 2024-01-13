@@ -71,3 +71,7 @@ Route::post('productDelete/{id}',[ProductController::class,'productDelete'])->na
 Route::get('/',[MineController::class,'indexHomeProduct']);
 
 Route::get('cart-view-product',[MineController::class,'cartViewProduct'])->name('cartViewProduct');
+
+Route::get('descproduct/{id}',[MineController::class,'descProduct'])->name('descProduct');
+
+Route::post('addToCart/{id}',[MineController::class,'addToCart'])->name('addToCart');

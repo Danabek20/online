@@ -10,7 +10,7 @@
             <div class="col-lg-3 mb-4 text-center">
 
                 <div class="product-entry border">
-                    <a href="{{ route('cartViewProduct') }}" class="prod-img">
+                    <a href="{{ route('descProduct',$product->id) }}" class="prod-img">
                         <img src="storage/product-img/{{$product->img  }}" class="img-fluid" alt="Free html5 bootstrap 4 template">
                     </a>
 
@@ -23,7 +23,7 @@
                         <span class="price">${{ $product->discount_price }}</span>
                         @endif
                     </div>
-                    <a href="{{ route('cartViewProduct') }}" class="btn btn-success" >View</a>
+                    <a href="{{ route('descProduct',$product->id) }}" class="btn btn-success" >View</a>
                 </div>
 
             </div>
