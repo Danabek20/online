@@ -35,6 +35,7 @@
                             @auth
 
                             <li class="cart">
+                                <li class="cart"><a href="{{route('cartViewProduct')}}"><i class="icon-shopping-cart"></i> Cart</a></li>
                                 <x-app-layout>
 
                                 </x-app-layout>
@@ -47,7 +48,6 @@
                             @endif
                             @endauth
                             @endif
-                        <li class="cart"><a href="cart.html"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
                     </ul>
                 </div>
             </div>

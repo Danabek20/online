@@ -38,6 +38,9 @@ Route::middleware([
 Route::get('/dash',[MineController::class,'dashboard']);
 
 
+//
+Route::get('viewAllOrders',[MineController::class,'viewAllOrders'])->name('viewAllOrders');
+
 //Category
 Route::get('categoryIndex',[CategoryController::class,'categoryIndex'])->name('categoryIndex');
 
@@ -75,3 +78,9 @@ Route::get('cart-view-product',[MineController::class,'cartViewProduct'])->name(
 Route::get('descproduct/{id}',[MineController::class,'descProduct'])->name('descProduct');
 
 Route::post('addToCart/{id}',[MineController::class,'addToCart'])->name('addToCart');
+
+Route::post('addToOrder',[MineController::class,'addToOrder'])->name('addToOrder');
+
+Route::get('orderSearch',[MineController::class,'orderSearch'])->name('orderSearch');
+
+Route::get('updateStatus/{id}',[MineController::class,'updateStatus'])->name('updateStatus');

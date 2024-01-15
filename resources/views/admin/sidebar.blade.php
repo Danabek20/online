@@ -10,6 +10,10 @@
         <a href="index.html" class="nav-link"><i data-feather="monitor"></i><span>Dashboard</span></a>
       </li>
       <li class="dropdown">
+        <a href="{{route('viewAllOrders')}}" class="nav-link"><i
+            data-feather="pie-chart"></i><span>All Orders</span></a>
+      </li>
+      <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i
             data-feather="briefcase"></i><span>Category</span></a>
         <ul class="dropdown-menu">

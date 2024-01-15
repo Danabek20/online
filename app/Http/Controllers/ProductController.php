@@ -62,24 +62,24 @@ class ProductController extends Controller
                      'price'=>'required',
                      'img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:10000',
                 ]);
-    
-    
+
+
                 $data = $request->all();
                 if($request->hasFile('img')){
                  $img = $request->file('img');
                  $imgName = time().'-'.$img->getClientOriginalName();
                  $path = $img->storeAs('product-img',$imgName);
                  $data['img']=$imgName;
-    
+
                 }
-    
+
                 Product::findOrFail($request->id)->update($data);
                 return redirect()->route('productIndex')->with('message','Product updated successfully');
         }
 
         public function productSearch(Request $request){
             $text = $request->search;
-            $products = Product::where('name','Like','%'.$text.'%')->get();
+            $products = Product::where('name','Like','%'.$text.'%')->paginate(5);
             return view('admin.product-view',compact('products'));
         }
 
