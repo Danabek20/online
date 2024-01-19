@@ -31,7 +31,7 @@
             <div class="col-9">
                 <div class="card">
                     <div class="card-header">
-                      <h4>Advanced Table</h4>
+                      <h4>All Orders</h4>
                       <div class="card-header-form">
                         <form action = "{{route('orderSearch')}}" method = "GET">
                           <div class="input-group">
@@ -76,7 +76,7 @@
                               <td>
                                 @if ($order->order_status == "Accepted")
 
-                                <div class="badge badge-primary">{{$order->order_status}}</div>
+                                <div class="badge badge-info">{{$order->order_status}}</div>
                                 @else
                                 <div class="badge badge-danger">{{$order->order_status}}</div>
                                 @endif
@@ -88,7 +88,7 @@
                                 <td>
                               @if ($order->order_status == "Accepted")
 
-                              <div class="btn btn-primary">{{'Delivered'}}</div>
+                              <div class="btn btn-success">{{'Delivered'}}</div>
                               @else
 
                               <a href="{{route('updateStatus',$order->id)}}" class="btn btn-primary"></i>Accept<i class="bi bi-check-square-fill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
@@ -117,7 +117,6 @@
 </div>
 </div>
 </section>
-@include('admin.footer')
 </div>
   <!-- General JS Scripts -->
 

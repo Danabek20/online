@@ -32,7 +32,7 @@
 	<div id="page">
 		@include('home.header')
 
-      
+
                       <!-- content -->
                       <section class="py-5">
                         <div class="container">
@@ -60,7 +60,7 @@
                                   <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp" />
                                 </a>
                               </div>
-                            
+
                               <!-- thumbs-wrap.// -->
                               <!-- gallery-wrap .end// -->
                             </aside>
@@ -69,8 +69,8 @@
                                 <h4 class="title text-dark">
                                  {{$product->name}}
                                 </h4>
-                                
-                      
+
+
                                 <div class="mb-3">
                                   @if($product->discount_price == NULL)
                                   <span class="h5">{{$product->price}}</span>
@@ -79,22 +79,22 @@
                                   @endif
                                   <span class="text-muted">/per box</span>
                                 </div>
-                      
+
                                 <p>
                                  {{$product->desc}}
                                 </p>
-                      
+
                                 <div class="row">
                                   <dt class="col-3">Count:</dt>
                                   <dd class="col-9">{{$product->quantity}}</dd>
-                      
-                                 
+
+
                                 </div>
-                      
+
                                 <hr />
-                      
+
                                 <div class="row mb-4">
-                                  
+
                                   <!-- col.// -->
                                   <div class="col-md-4 col-6 mb-3">
                                     <label class="mb-2 d-block">Quantity</label>
@@ -102,20 +102,20 @@
                                       @csrf
                                          <div class="input-group">
                                          <span class="input-group-btn">
-                                             <button type="button" class="quantity-left-minus btn btn-danger btn-number"  data-type="minus" data-field="">
+                                             <button type="button" class="quantity-left-minus btn bg-primary btn-number"  data-type="minus" data-field="">
                                                <span class="glyphicon glyphicon-minus"></span>
                                              </button>
                                          </span>
-             
+
                                          <input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="">
                                          <span class="input-group-btn">
-                                             <button type="button" class="quantity-right-plus btn btn-success btn-number" data-type="plus" data-field="">
+                                             <button type="button" class="quantity-right-plus btn bg-success btn-number" data-type="plus" data-field="">
                                                  <span class="glyphicon glyphicon-plus"></span>
                                              </button>
                                          </span>
-             
+
                                      </div>
-                                     <button type="submit" class=" mt-5 btn btn-primary" ><i class="me-1 fa fa-shopping-basket"></i>Add To Cart</button>
+                                     <button type="submit" class=" mt-5 btn bg-primary" ><i class="me-1 fa fa-shopping-basket"></i>Add To Cart</button>
                                  </form>
                                   </div>
                                 </div>
@@ -126,7 +126,6 @@
                           </div>
                         </div>
                       </section>
-        @include('home.footer')
 	</div>
 
 	<div class="gototop js-top">
@@ -135,6 +134,42 @@
 
 	<!-- jQuery -->
 	@include('home.js')
+    <script>
+        $(document).ready(function(){
+
+var quantitiy=0;
+   $('.quantity-right-plus').click(function(e){
+
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity = parseInt($('#quantity').val());
+
+        // If is not undefined
+
+            $('#quantity').val(quantity + 1);
+
+
+            // Increment
+
+    });
+
+     $('.quantity-left-minus').click(function(e){
+        // Stop acting like a button
+        e.preventDefault();
+        // Get the field name
+        var quantity = parseInt($('#quantity').val());
+
+        // If is not undefined
+
+            // Increment
+            if(quantity>0){
+            $('#quantity').val(quantity - 1);
+            }
+    });
+
+});
+    </script>
 
 	</body>
 </html>

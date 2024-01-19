@@ -31,7 +31,7 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                      <h4>Advanced Table</h4>
+                      <h4>All Products</h4>
                       <div class="card-header-form">
                         <form action = "{{route('productSearch')}}" method = "GET">
                           <div class="input-group">

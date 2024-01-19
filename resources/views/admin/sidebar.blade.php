@@ -18,7 +18,7 @@
             data-feather="briefcase"></i><span>Category</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{route('categoryAdd')}}">Add Category</a></li>
-          <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li>
+          {{-- <li><a class="nav-link" href="widget-data.html">Data Widgets</a></li> --}}
         </ul>
       </li>
       <li class="dropdown">
@@ -26,19 +26,19 @@
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="{{route('productAdd')}}">Add Product</a></li>
           <li><a class="nav-link" href="{{route('productIndex')}}">View Product</a></li>
-          <li><a class="nav-link" href="blog.html">Blog</a></li>
-          <li><a class="nav-link" href="calendar.html">Calendar</a></li>
+          {{-- <li><a class="nav-link" href="blog.html">Blog</a></li>
+          <li><a class="nav-link" href="calendar.html">Calendar</a></li> --}}
         </ul>
       </li>
-      <li class="dropdown">
+      {{-- <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="mail"></i><span>Email</span></a>
         <ul class="dropdown-menu">
           <li><a class="nav-link" href="email-inbox.html">Inbox</a></li>
           <li><a class="nav-link" href="email-compose.html">Compose</a></li>
           <li><a class="nav-link" href="email-read.html">read</a></li>
         </ul>
-      </li>
-      <li class="menu-header">UI Elements</li>
+      </li> --}}
+      {{-- <li class="menu-header">UI Elements</li>
       <li class="dropdown">
         <a href="#" class="menu-toggle nav-link has-dropdown"><i data-feather="copy"></i><span>Basic
             Components</span></a>
@@ -206,6 +206,6 @@
             </ul>
           </li>
         </ul>
-      </li>
+      </li> --}}
     </ul>
   </aside>

@@ -15,7 +15,6 @@
 
         <div class="alert alert-success alert-dismissible">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            {{-- <button type="button" class="btn-close" data-dismiss="alert" aria-label="close">&times;</button> --}}
             <strong>{{session()->get('message')}}</strong>
         </div>
         @endif

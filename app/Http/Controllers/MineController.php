@@ -112,7 +112,10 @@ class MineController extends Controller
     }
     public function orderSearch(Request $request){
         $text = $request->search;
-        $orders = Order::where('product_name','Like','%'.$text.'%')->paginate(5);
+        $orders = Order::where('user_name','Like','%'.$text.'%')->
+                        orwhere('email','Like','%'.$text.'%')->
+                        orwhere('phone','Like','%'.$text.'%')->
+                        paginate(5);
 
         return view('admin.viewAllOrders',compact('orders'));
     }
