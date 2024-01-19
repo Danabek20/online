@@ -3,7 +3,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-7 col-md-9">
-                    <div id="colorlib-logo"><a href="index.html">Footwear</a></div>
+                    <div id="colorlib-logo"><a href="/">Footwear</a></div>
                 </div>
                 <div class="col-sm-5 col-md-3">
                 <form action="#" class="search-wrap">
@@ -36,6 +36,8 @@
 
                             <li class="cart">
                                 <li class="cart"><a href="{{route('cartViewProduct')}}"><i class="icon-shopping-cart"></i> Cart</a></li>
+                                <li class="cart"><a href="{{route('viewSavedProduct')}}"><i class="me-1 fa fa-heart fa-lg"></i> Saved</a></li>
+
                                 <x-app-layout>
 
                                 </x-app-layout>

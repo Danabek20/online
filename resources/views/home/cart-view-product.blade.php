@@ -7,6 +7,7 @@
    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <link rel="stylesheet" href="home/cart.css">
 	@include('home.css')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 	</head>
 	<body>
 
@@ -66,7 +67,7 @@
                                 <h6 class="mb-0">$ {{$cart->total_price}}</h6>
                               </div>
                               <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                <a href="#!" class="text-muted"><i class="fas fa-times"></i></a>
+                                <a href="{{route('deleteFromCart',$cart->id)}}" class="text-muted"><i class="fas fa-times"></i></a>
                               </div>
                             </div>
                             <hr class="my-4">
@@ -98,9 +99,9 @@
                         <div class="col-lg-4 bg-grey">
                           <div class="p-5">
                             <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                            <hr class="my-4">
+                            {{-- <hr class="my-4"> --}}
 
-                            <div class="d-flex justify-content-between mb-4">
+                            {{-- <div class="d-flex justify-content-between mb-4">
                               <h5 class="text-uppercase">items 3</h5>
                               <h5>€ 132.00</h5>
                             </div>
@@ -123,7 +124,7 @@
                                 <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
                                 <label class="form-label" for="form3Examplea2">Enter your code</label>
                               </div>
-                            </div>
+                            </div> --}}
 
                             <hr class="my-4">
                             <form action="{{route('addToOrder')}}" method="post">
@@ -133,8 +134,8 @@
                               <h5>$ {{$total_price}}</h5>
                             </div>
 
-                            <button type="submit" class="btn btn-dark btn-block btn-lg"
-                              data-mdb-ripple-color="dark">Register</button>
+                            <button type="submit" style="color: white" class="btn bg-dark btn-block btn-lg"
+                              >Order</button>
                             </form>
                           </div>
                         </div>

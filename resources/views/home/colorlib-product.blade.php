@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
 <div class="colorlib-product">
     <div class="container">
         <div class="row">
@@ -23,7 +26,7 @@
                         <span class="price">${{ $product->discount_price }}</span>
                         @endif
                     </div>
-                    <a href="{{ route('descProduct',$product->id) }}" class="btn btn-success" >View</a>
+                    <a href="{{route('addToSave',$product->id)}}" class="btn btn-light border border-secondary py-2 icon-hover px-3"> <i class="me-1 fa fa-heart fa-lg"></i> Save </a>
                 </div>
 
             </div>

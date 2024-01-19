@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Cart;
 use App\Models\Order;
+use App\Models\Save;
 use Illuminate\Support\Facades\DB;
 
 
@@ -35,9 +36,12 @@ class MineController extends Controller
 
     public function descProduct($id){
         $product = Product::findOrFail($id);
-        return view('home.product-desc',compact('product'));
+        // $product = Save::findOrFail($id);
+        return view('home.product-desc',compact('product',));
     }
 
+
+    //cart
     public function addToCart(Request $request,$id){
         if (Auth::check()) {
 
@@ -80,6 +84,11 @@ class MineController extends Controller
 
             return view('home.cart-view-product',compact('carts'));
     }
+    public function deleteFromCart($id){
+        Cart::destroy($id);
+        return redirect()->back()->with('message','Product deleted from cart');
+
+    }
     //Order
     public function addToOrder(){
         $user = Auth::user();
@@ -110,6 +119,8 @@ class MineController extends Controller
         $orders = Order::paginate(5);
         return view('admin.viewAllOrders',compact('orders'));
     }
+
+
     public function orderSearch(Request $request){
         $text = $request->search;
         $orders = Order::where('user_name','Like','%'.$text.'%')->
@@ -123,5 +134,32 @@ class MineController extends Controller
 
         Order::where('id', $id)->update(array('order_status' => 'Accepted'));
         return redirect()->back()->with('message','Order is Accepted');
+    }
+
+    //Save
+
+    public function addToSave($id){
+        $product = Product::findOrFail($id);
+
+        Save::create([
+            'category'=>$product->category,
+            'name'=>$product->name,
+            'desc'=>$product->desc,
+            'price'=>$product->price,
+            'discount_price'=>$product->discount_price,
+            'quantity'=>$product->quantity,
+            'img'=>$product->img
+        ]);
+        return redirect()->back()->with('message','Product is saved');
+
+    }
+    public function viewSavedProduct(){
+        $saved = Save::all();
+        return view('home.viewSavedProduct',compact('saved'));
+    }
+    public function deleteFromSaved($id){
+        Save::destroy($id);
+        return redirect()->back()->with('message','Product deleted from Saved');
+
     }
 }

@@ -43,7 +43,7 @@
                                   <img style="max-width: 100%; max-height: 100vh; margin: auto;" class="rounded-4 fit" src="storage/product-img/{{$product->img  }}" />
                                 </a>
                               </div>
-                              <div class="d-flex justify-content-center mb-3">
+                              {{-- <div class="d-flex justify-content-center mb-3">
                                 <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big1.webp" class="item-thumb">
                                   <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big1.webp" />
                                 </a>
@@ -59,7 +59,7 @@
                                 <a data-fslightbox="mygalley" class="border mx-1 rounded-2" target="_blank" data-type="image" href="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp" class="item-thumb">
                                   <img width="60" height="60" class="rounded-2" src="https://bootstrap-ecommerce.com/bootstrap5-ecommerce/images/items/detail1/big.webp" />
                                 </a>
-                              </div>
+                              </div> --}}
 
                               <!-- thumbs-wrap.// -->
                               <!-- gallery-wrap .end// -->

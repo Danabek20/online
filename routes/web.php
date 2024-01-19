@@ -77,10 +77,20 @@ Route::get('cart-view-product',[MineController::class,'cartViewProduct'])->name(
 
 Route::get('descproduct/{id}',[MineController::class,'descProduct'])->name('descProduct');
 
+
 Route::post('addToCart/{id}',[MineController::class,'addToCart'])->name('addToCart');
 
 Route::post('addToOrder',[MineController::class,'addToOrder'])->name('addToOrder');
 
+Route::get('deleteFromCart/{id}',[MineController::class,'deleteFromCart'])->name('deleteFromCart');
+
 Route::get('orderSearch',[MineController::class,'orderSearch'])->name('orderSearch');
 
 Route::get('updateStatus/{id}',[MineController::class,'updateStatus'])->name('updateStatus');
+
+//Save
+Route::get('addToSave/{id}',[MineController::class,'addToSave'])->name('addToSave');
+
+Route::get('view-saved-product',[MineController::class,'viewSavedProduct'])->name('viewSavedProduct');
+
+Route::get('deleteFromSaved/{id}',[MineController::class,'deleteFromSaved'])->name('deleteFromSaved');
