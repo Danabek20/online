@@ -57,10 +57,12 @@
                             <th>User Address</th>
                             <th>Product Name</th>
                             <th>Product Price</th>
+                            <th>Total Price</th>
                             <th>Product Quantity</th>
                             <th>Order Status</th>
                             <th>Image</th>
                             <th>Action</th>
+                            <th>Chek</th>
                           </tr>
                           @foreach ($orders  as $order)
 
@@ -72,6 +74,7 @@
                               <td>{{$order->address}} </td>
                               <td>{{$order->product_name}}</td>
                               <td>{{$order->product_price}}</td>
+                              <td>{{$order->total_price}}</td>
                               <td>{{$order->quantity}}</td>
                               <td>
                                 @if ($order->order_status == "Accepted")
@@ -88,19 +91,24 @@
                                 <td>
                               @if ($order->order_status == "Accepted")
 
-                              <div class="btn btn-success">{{'Delivered'}}</div>
+                              <div class="btn btn-warning">{{'Delivered'}}</div>
                               @else
 
                               <a href="{{route('updateStatus',$order->id)}}" class="btn btn-primary"></i>Accept<i class="bi bi-check-square-fill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-square-fill" viewBox="0 0 16 16">
                                 <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm10.03 4.97a.75.75 0 0 1 .011 1.05l-3.992 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.75.75 0 0 1 1.08-.022z"/>
                             </svg></a></td>
                             @endif
-                            {{-- <td><form action="{{ route('productDelete', $product->id) }}" method="post">
-                                @csrf
-                                <button class="btn bg-danger" type="submit">
-                                  DELETE
-                                </button>
-                              </form></td> --}}
+                            <td>
+                                @if ($order->order_status == "Accepted")
+
+                                <a href="{{route('pdf',$order->id)}}" class="badge btn-success"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                    <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5"/>
+                                    <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708z"/>
+                                  </svg></a>
+                                @else
+                                
+                                @endif
+                                </td>
                         </tr>
                         @php
                             $i++;

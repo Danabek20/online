@@ -8,6 +8,7 @@ use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Save;
 use Illuminate\Support\Facades\DB;
+use Barryvdh\DomPDF\Facade\Pdf;
 
 
 use Illuminate\Support\Facades\Auth;
@@ -36,7 +37,10 @@ class MineController extends Controller
 
     public function descProduct($id){
         $product = Product::findOrFail($id);
-        // $product = Save::findOrFail($id);
+        return view('home.product-desc',compact('product',));
+    }
+    public function descriptionProduct($id){
+        $product = Save::findOrFail($id);
         return view('home.product-desc',compact('product',));
     }
 
@@ -103,7 +107,8 @@ class MineController extends Controller
                 'email'=>$order->email,
                 'address'=>$order->address,
                 'product_name'=>$order->product_name,
-                'product_price'=>$order->total_price,
+                'product_price'=>$order->price,
+                'total_price'=>$order->total_price,
                 'quantity'=>$order->quantity,
                 'img'=>$order->img,
                 'order_status'=>"Processing"
@@ -161,5 +166,18 @@ class MineController extends Controller
         Save::destroy($id);
         return redirect()->back()->with('message','Product deleted from Saved');
 
+    }
+
+    public function pdf($id){
+        $desc = Order::findOrFail($id);
+
+
+        $pdf = Pdf::loadView('admin.pdf',compact('desc'));
+        return $pdf->download('invoice.pdf');
+    }
+    public function pfd($id){
+        $desc = Order::findOrFail($id);
+
+        return view('admin.pdf',compact('desc'));
     }
 }

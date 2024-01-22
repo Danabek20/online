@@ -15,6 +15,7 @@ class order extends Model
         'address',
         'product_name',
         'product_price',
+        'total_price',
         'quantity',
         'img',
         'order_status'

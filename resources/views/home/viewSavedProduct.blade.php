@@ -26,7 +26,7 @@
                     <div class="col-lg-3 mb-4 text-center">
 
                         <div class="product-entry border">
-                            <a href="{{ route('descProduct',$save->id) }}" class="prod-img">
+                            <a href="{{ route('descriptionProduct',$save->id) }}" class="prod-img">
                                 <img src="storage/product-img/{{$save->img  }}" class="img-fluid" alt="Free html5 bootstrap 4 template">
                             </a>
 

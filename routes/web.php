@@ -76,6 +76,7 @@ Route::get('/',[MineController::class,'indexHomeProduct']);
 Route::get('cart-view-product',[MineController::class,'cartViewProduct'])->name('cartViewProduct');
 
 Route::get('descproduct/{id}',[MineController::class,'descProduct'])->name('descProduct');
+Route::get('descriptionproduct/{id}',[MineController::class,'descriptionProduct'])->name('descriptionProduct');
 
 
 Route::post('addToCart/{id}',[MineController::class,'addToCart'])->name('addToCart');
@@ -94,3 +95,9 @@ Route::get('addToSave/{id}',[MineController::class,'addToSave'])->name('addToSav
 Route::get('view-saved-product',[MineController::class,'viewSavedProduct'])->name('viewSavedProduct');
 
 Route::get('deleteFromSaved/{id}',[MineController::class,'deleteFromSaved'])->name('deleteFromSaved');
+
+//pdf
+
+ Route::get('pdf/{id}',[MineController::class,'pdf'])->name('pdf');
+
+Route::get('pfd/{id}',[MineController::class,'pfd'])->name('pfd');

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('address');
             $table->string('product_name');
             $table->string('product_price');
+            $table->string('total_price');
             $table->string('quantity');
             $table->string('img');
             $table->string('order_status');
