@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MineController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
+use App\Http\Middleware\Authenticate;
 
 
 
@@ -76,10 +77,13 @@ Route::get('/',[MineController::class,'indexHomeProduct']);
 Route::get('cart-view-product',[MineController::class,'cartViewProduct'])->name('cartViewProduct');
 
 Route::get('descproduct/{id}',[MineController::class,'descProduct'])->name('descProduct');
+
 Route::get('descriptionproduct/{id}',[MineController::class,'descriptionProduct'])->name('descriptionProduct');
 
 
 Route::post('addToCart/{id}',[MineController::class,'addToCart'])->name('addToCart');
+
+Route::post('addtoCartSaved/{id}',[MineController::class,'addtoCartSaved'])->name('addtoCartSaved');
 
 Route::post('addToOrder',[MineController::class,'addToOrder'])->name('addToOrder');
 
@@ -101,3 +105,10 @@ Route::get('deleteFromSaved/{id}',[MineController::class,'deleteFromSaved'])->na
  Route::get('pdf/{id}',[MineController::class,'pdf'])->name('pdf');
 
 Route::get('pfd/{id}',[MineController::class,'pfd'])->name('pfd');
+
+ //Auth
+
+
+// Route::get('/viewAllOrders', function () {
+//     // ...
+// })->middleware('auth');

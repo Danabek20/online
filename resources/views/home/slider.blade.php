@@ -1,15 +1,15 @@
 <aside id="colorlib-hero">
     <div class="flexslider">
         <ul class="slides">
-           <li style="background-image: url(home/images/img_bg_1.jpg);">
+           <li style="background-image: url(home/images/Online-shopping-websites.webp);">
                <div class="overlay"></div>
                <div class="container-fluid">
                    <div class="row">
                        <div class="col-sm-6 offset-sm-3 text-center slider-text">
                            <div class="slider-text-inner">
                                <div class="desc">
-                                   <h1 class="head-1">Men's</h1>
-                                   <h2 class="head-2">Shoes</h2>
+                                   <h1 class="head-1">Online</h1>
+                                   <h2 class="head-2">Shop</h2>
                                    <h2 class="head-3">Collection</h2>
                                    <p class="category"><span>New trending shoes</span></p>
                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
@@ -19,7 +19,7 @@
                    </div>
                </div>
            </li>
-           <li style="background-image: url(home/images/img_bg_2.jpg);">
+           <li style="background-image: url(home/images/phone.png);">
                <div class="overlay"></div>
                <div class="container-fluid">
                    <div class="row">
@@ -29,7 +29,7 @@
                                    <h1 class="head-1">Huge</h1>
                                    <h2 class="head-2">Sale</h2>
                                    <h2 class="head-3"><strong class="font-weight-bold">50%</strong> Off</h2>
-                                   <p class="category"><span>Big sale sandals</span></p>
+                                   <p class="category"><span>Big sale phones</span></p>
                                    <p><a href="#" class="btn btn-primary">Shop Collection</a></p>
                                </div>
                            </div>

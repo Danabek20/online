@@ -1,3 +1,10 @@
+@if (Session::has('message'))
+
+<div class="alert alert-success alert-dismissible">
+    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+    <strong>{{session()->get('message')}}</strong>
+</div>
+@endif
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -21,6 +28,7 @@
                         <h2>Best Sellers</h2>
                     </div>
                 </div>
+                {{-- {{$saved}} --}}
                 <div class="row row-pb-md">
                     @foreach ($saved as $save )
                     <div class="col-lg-3 mb-4 text-center">
@@ -39,7 +47,6 @@
                                 <span class="price">${{ $save->discount_price }}</span>
                                 @endif
                             </div>
-                            {{-- <a href="{{ route('descProduct',$save->id) }}" class="btn btn-success shadow-0"> <i class="bi bi-trash-fill"></i>Delete</a> --}}
                             <a href="{{route('deleteFromSaved',$save->id)}}" class="btn btn-light border border-secondary py-2 icon-hover px-3"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash-fill" viewBox="0 0 16 16">
                                 <path d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5M8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5m3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0"/>
                               </svg>  </a>

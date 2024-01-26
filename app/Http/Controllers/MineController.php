@@ -19,7 +19,7 @@ class MineController extends Controller
 {
     public function dashboard(){
         $userType = Auth::user()->user_type;
-        $products = Product::paginate(3);
+        $products = Product::paginate(4);
         if($userType==1){
             return view('admin.home');
         }else{
@@ -28,9 +28,10 @@ class MineController extends Controller
     }
 
     public function indexHomeProduct(){
-        $products = Product::paginate(3);
+        $products = Product::paginate(4);
+        $saved = Save::all();
 
-        return view('home.index',compact('products'));
+        return view('home.index',compact('products','saved'));
     }
 
 
@@ -41,7 +42,7 @@ class MineController extends Controller
     }
     public function descriptionProduct($id){
         $product = Save::findOrFail($id);
-        return view('home.product-desc',compact('product',));
+        return view('home.desc-product',compact('product',));
     }
 
 
@@ -50,6 +51,7 @@ class MineController extends Controller
         if (Auth::check()) {
 
             $product = Product::findOrFail($id);
+            // dd($product);
             $user = Auth::user();
 
             if($product->discount_price==NULL){
@@ -73,7 +75,40 @@ class MineController extends Controller
                 'quantity'=>$request->quantity
             ]);
             return redirect()->route('cartViewProduct');
+        }else{
+            return redirect()->route('login')->with('message','To add to the cart you need to log in!');
+        }
 
+
+    }
+    public function addToCartSaved(Request $request,$id){
+        if (Auth::check()) {
+
+            $product = Save::findOrFail($id);
+            // dd($product);
+            $user = Auth::user();
+
+            if($product->discount_price==NULL){
+                $price = $product->price;
+            }else{
+                $price = $product->discount_price;
+            }
+
+            $total_price = $request->quantity*$price;
+            Cart::create([
+                'product_id'=>$product->id,
+                'user_id'=>$user->id,
+                'user_name'=>$user->name,
+                'email'=>$user->email,
+                'phone'=>$user->phone,
+                'address'=>$user->address,
+                'product_name'=>$product->name,
+                'img'=>$product->img,
+                'price'=>$price,
+                'total_price'=>$total_price,
+                'quantity'=>$request->quantity
+            ]);
+            return redirect()->route('cartViewProduct');
         }else{
             return redirect()->route('login')->with('message','To add to the cart you need to log in!');
         }
@@ -145,8 +180,10 @@ class MineController extends Controller
 
     public function addToSave($id){
         $product = Product::findOrFail($id);
-
+        $saves = DB::table('saves')->where('product_id', $product->id)->first();
+        if($saves == null){
         Save::create([
+            'product_id'=> $product->id,
             'category'=>$product->category,
             'name'=>$product->name,
             'desc'=>$product->desc,
@@ -156,7 +193,9 @@ class MineController extends Controller
             'img'=>$product->img
         ]);
         return redirect()->back()->with('message','Product is saved');
-
+    }else{
+        return redirect()->back()->with('message','Product has already been saved');
+    }
     }
     public function viewSavedProduct(){
         $saved = Save::all();

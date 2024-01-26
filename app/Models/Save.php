@@ -9,6 +9,7 @@ class Save extends Model
 {
     use HasFactory;
     protected $fillable = [
+        'product_id',
         'category',
         'name',
         'desc',

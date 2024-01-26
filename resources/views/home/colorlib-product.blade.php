@@ -9,6 +9,10 @@
             </div>
         </div>
         <div class="row row-pb-md">
+{{-- 
+            @foreach ($saved as $save)
+            @endforeach
+            {{$save->product_id}} --}}
             @foreach ($products as $product )
             <div class="col-lg-3 mb-4 text-center">
 
